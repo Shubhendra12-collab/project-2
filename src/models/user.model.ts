@@ -3,8 +3,9 @@
 import mongoose from 'mongoose';
 
 enum Role {
-    ADMIN = 'admin',
-    USER = 'user',
+    ADMIN = 'ADMIN',
+    USER = 'USER',
+    HOST = 'HOST',
 }
 
 
@@ -37,6 +38,7 @@ const userSchema = new mongoose.Schema<IUserDocument>(
     password:{
         type:String,
         required:[true,"password is required"],
+        select:false, // Exclude password from query results by default
     },
     role:{
         type:String,
