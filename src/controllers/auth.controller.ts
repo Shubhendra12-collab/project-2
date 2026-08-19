@@ -11,7 +11,9 @@ import { generateJwtToken } from '../utils/jwt.utils';
 
 export const register = catchAsync(async(req,res)=>{
     const { full_name, email, password, phone_number, profile_image,} = req.body;
-       
+    const file = req.file;
+    console.log(file);   
+
         if(!full_name){
             // const error : any = new Error("full_name is required");
             // error.statusCode = 400;
